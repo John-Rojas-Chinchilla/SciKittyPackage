@@ -7,13 +7,13 @@ if readme_path.exists():
 else:
     long_description = ""
 
-# Inline runtime dependencies to avoid reading files during PEP517 isolated builds.
+# Runtime dependencies should be modern and flexible so they do not force
+# incompatible NumPy versions into downstream environments.
 install_requires = [
-    "pandas>=1.5,<3",
-    "numpy>=1.24.1,<2",
-    "scikit-image>=0.20,<1",
-    "scikit-learn>=1.0,<2",
-    "scikit-learn-intelex>=2024.4.0,<2025",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "scikit-image>=0.25",
+    "scikit-learn>=1.4",
     "graphviz>=0.20.3",
 ]
 
@@ -21,7 +21,8 @@ setup(
     name='scikitty',
     packages=find_packages(),
     install_requires=install_requires,
-    version='1.0',
+    python_requires='>=3.10',
+    version='1.0.1',
     description='A package to create Decision Trees like Scikitlearn.',
     long_description=long_description,
     long_description_content_type='text/markdown',
